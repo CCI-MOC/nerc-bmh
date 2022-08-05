@@ -1,0 +1,17 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    bmac.agent-install.openshift.io/hostname: wrk-20.nerc-ocp-prod.rc.fas.harvard.edu
+    inspect.metal3.io: disabled
+  labels:
+    infraenvs.agent-install.openshift.io: nerc-infra
+  name: wrk-20.nerc-ocp-prod.rc.fas.harvard.edu
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: wrk-20-obm.nerc-ocp-prod.rc.fas.harvard.edu
+    credentialsName: wrk-20-bmc-credentials
+    disableCertificateVerification: true
+  bootMACAddress: 50:9A:4C:8F:07:95
+  online: true

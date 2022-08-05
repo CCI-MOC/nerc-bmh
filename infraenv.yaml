@@ -1,0 +1,23 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  labels:
+    agentclusterinstalls.extensions.hive.openshift.io/location: MGHPCC
+    networkType: dhcp
+  name: nerc-infra
+spec:
+  additionalNTPSources:
+  - endrun1.noc.harvard.edu
+  - endrun2.noc.harvard.edu
+  - endrun3.noc.harvard.edu
+  - endrun4.noc.harvard.edu
+  agentLabels:
+    agentclusterinstalls.extensions.hive.openshift.io/location: MGHPCC
+  cpuArchitecture: x86_64
+  nmStateConfigLabelSelector:
+    matchLabels:
+      infraenvs.agent-install.openshift.io: nerc-infra
+  pullSecretRef:
+    name: pullsecret-nerc-infra
+  sshAuthorizedKey: |-
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDTzTxQCK4RkvEU5u2jwc1INbguFhLY6rh/koaQHVZXPcexzG+Olo8F+n+YxG9E2fqCmuFkSRZkPcKTwb9gGQOqkLjBZn2sKbzgTinE1wDOXrMZ2H0sY7r7AcPiQQr3QUcKfzlH1CyCePezaR7Sb+hH7ZjBtq6YCIhv9KHYgu27GYN3nGfnuFY3HIIkmek3QbcBc7AuCcKsrwVMcvC0VLtXdt/wLASVvvSCFDTxnr6Gf8rHHm7UFc8+aEeSYkDZECyuUr2fFtjKqJ/E/7gRJU8XjW1xo+XLZA1BjugJvgvN1RA21rEiZ9O34kxpE8S+j121LFgZ8hfk1UySD+3r/yxgAVU3UsE1LlBoJrllYKaOfMbTCnfwu9n8XnlXYT7P/6Df7hK5PKY1oMDk3ybpBHxLg4XjKAKxIr2DkhSNzMmhdKWAoD1vrT7Vkw3tFKqlfV2B9aMpe5sMNjyaKZxEJ8rrfcP6iR8FMMLIpRWsK0H45A+G3Yf1D1aSm9TVoCWdKSxhKtoB/MHzHgOkirB5pgbALjSAhYDNczBofm7Cgivd0uyNgK5HaRJrn19pD87fOJXdPZnV6/rwDoInrDRA8Lor9WfMTEgfoNYbmjUy8Mn7akr1hGIfL0aQwGQqyNeoCW1SdmPF/p+zog9OXnf/zgqExFuwWjecnQQtkugtK0qZqQ== nerc-infra

@@ -1,0 +1,39 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: nerc-infra
+
+resources:
+  - infraenv.yaml
+  - wrk-20.yaml
+  - wrk-21.yaml
+  - wrk-22.yaml
+  - wrk-23.yaml
+  - wrk-24.yaml
+  - wrk-25.yaml
+
+secretGenerator:
+  - name: pullsecret-nerc-infra
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson=pull-secret.txt
+  - name: wrk-20-bmc-credentials
+    envs:
+      - nerc-bmc-credentials.env
+  - name: wrk-21-bmc-credentials
+    envs:
+      - nerc-bmc-credentials.env
+  - name: wrk-22-bmc-credentials
+    envs:
+      - nerc-bmc-credentials.env
+  - name: wrk-23-bmc-credentials
+    envs:
+      - nerc-bmc-credentials.env
+  - name: wrk-24-bmc-credentials
+    envs:
+      - nerc-bmc-credentials.env
+  - name: wrk-25-bmc-credentials
+    envs:
+      - nerc-bmc-credentials.env
+
+generatorOptions:
+  disableNameSuffixHash: true
